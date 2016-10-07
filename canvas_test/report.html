@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="400" height="300" style="display:none"></canvas>
+    <img id="result" />
+
+    <img 
+        id="tulip1"
+        crossorigin="anonymous"
+        src="http://b1.hucdn.com/upload/item/1609/18/99107612413198_500x500.jpg!210x210.webp"
+        alt="The Tulip"
+        style="display:none"
+    />
+    <script>
+      var canvas = document.getElementById('myCanvas');
+      var ctx = canvas.getContext("2d");
+      // save canvas image as data url (png format by default)
+      var img1 = document.getElementById("tulip1");
+      img1.onload = function(){
+          for(var i=0; i<4; i++) {
+              ctx.drawImage(img1, i * 100, i * 10);
+          }
+          var dataURL = canvas.toDataURL("image/png");
+          document.getElementById("result").src = dataURL;
+      }
+      // ctx.drawImage(img1,10,10);
+      // ctx.drawImage(img2,30,30);
+    </script>
+  </body>
+</html>      
